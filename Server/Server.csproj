@@ -140,7 +140,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\UserInter.cs" />
     <Compile Include="env\FireStoreHelper.cs" />
+    <Compile Include="env\MD5Helper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
