@@ -17,9 +17,26 @@ namespace MusicApp.Forms
             InitializeComponent();
         }
 
-        private void bunifuImageButton1_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnMaxsize_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+        }
+
+        private void btnMinsize_Click(object sender, EventArgs e)
+        {
+            this.WindowState |= FormWindowState.Minimized;
         }
     }
 }
