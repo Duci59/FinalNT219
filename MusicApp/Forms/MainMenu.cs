@@ -38,5 +38,10 @@ namespace MusicApp.Forms
         {
             this.WindowState |= FormWindowState.Minimized;
         }
+
+        private void bunifuCustomLabel6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
