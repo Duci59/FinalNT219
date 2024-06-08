@@ -1669,10 +1669,11 @@
             // 
             // panel6
             // 
+            this.panel6.AutoScroll = true;
             this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(629, 347);
+            this.panel6.Size = new System.Drawing.Size(665, 347);
             this.panel6.TabIndex = 0;
             // 
             // panel4
@@ -1690,9 +1691,9 @@
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(629, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(665, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(348, 347);
+            this.pictureBox1.Size = new System.Drawing.Size(312, 347);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
