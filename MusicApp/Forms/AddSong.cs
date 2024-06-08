@@ -21,6 +21,7 @@ namespace MusicApp.Forms
         private readonly Service _firebaseService;
         private readonly StorageClient _storageClient;
         private string Username;
+        
         public AddSong(string username)
         {
             InitializeComponent();
@@ -56,7 +57,7 @@ namespace MusicApp.Forms
                 imageBox.Image = img.GetThumbnailImage(400,200,null, new IntPtr());
             }
         }
-
+       
         private async void btnInsert_Click(object sender, EventArgs e)
         {
             if (tbNameSong.Text == "" || tbNameSinger.Text == "" || tbSongTime.Text == "" || tbURLAudio.Text == "")
@@ -83,6 +84,9 @@ namespace MusicApp.Forms
                     Img = output
                 };
 
+                MD5Helper.EncryptWavFile(tbURLAudio.Text, tbURLAudio.Text);
+
+                //MessageBox.Show(Properties.Resources.filesrac.ToString());
                 using (FileStream audioFileStream = File.OpenRead(tbURLAudio.Text))
                 {
                     string projectDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent?.Parent?.FullName;
@@ -126,6 +130,16 @@ namespace MusicApp.Forms
                     tbURLAudio.Text = openFileDialog.FileName;
                 }
             }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnMinsize_Click(object sender, EventArgs e)
+        {
+            this.WindowState |= FormWindowState.Minimized;
         }
     }
 }
