@@ -58,9 +58,9 @@
             this.btnMinsize = new Bunifu.UI.WinForms.BunifuImageButton();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.errorlb = new System.Windows.Forms.Label();
             this.bunifuImageButton3 = new Bunifu.UI.WinForms.BunifuImageButton();
             this.bunifuDragControl2 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.errorlb = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -654,6 +654,19 @@
             this.panel2.Size = new System.Drawing.Size(1053, 670);
             this.panel2.TabIndex = 20;
             // 
+            // errorlb
+            // 
+            this.errorlb.AutoSize = true;
+            this.errorlb.BackColor = System.Drawing.Color.Transparent;
+            this.errorlb.Font = new System.Drawing.Font("Century Gothic", 8.5F);
+            this.errorlb.ForeColor = System.Drawing.Color.Red;
+            this.errorlb.Location = new System.Drawing.Point(588, 386);
+            this.errorlb.Name = "errorlb";
+            this.errorlb.Size = new System.Drawing.Size(44, 20);
+            this.errorlb.TabIndex = 50;
+            this.errorlb.Text = "error";
+            this.errorlb.Visible = false;
+            // 
             // bunifuImageButton3
             // 
             this.bunifuImageButton3.ActiveImage = null;
@@ -694,19 +707,6 @@
             this.bunifuDragControl2.Horizontal = true;
             this.bunifuDragControl2.TargetControl = this.panel2;
             this.bunifuDragControl2.Vertical = true;
-            // 
-            // errorlb
-            // 
-            this.errorlb.AutoSize = true;
-            this.errorlb.BackColor = System.Drawing.Color.Transparent;
-            this.errorlb.Font = new System.Drawing.Font("Century Gothic", 8.5F);
-            this.errorlb.ForeColor = System.Drawing.Color.Red;
-            this.errorlb.Location = new System.Drawing.Point(588, 386);
-            this.errorlb.Name = "errorlb";
-            this.errorlb.Size = new System.Drawing.Size(44, 20);
-            this.errorlb.TabIndex = 50;
-            this.errorlb.Text = "error";
-            this.errorlb.Visible = false;
             // 
             // Login
             // 
