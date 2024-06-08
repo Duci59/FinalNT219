@@ -1,61 +1,77 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\FinalNT219\\FinalNT219\\",
+  "WorkspaceRootPath": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|d:\\finalnt219\\finalnt219\\musicapp\\env\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|solutionrelative:musicapp\\env\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|D:\\FinalNT219\\FinalNT219\\musicapp\\env\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|solutionrelative:musicapp\\env\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|D:\\FinalNT219\\FinalNT219\\musicapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|solutionrelative:musicapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|D:\\FinalNT219\\FinalNT219\\musicapp\\forms\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|solutionrelative:musicapp\\forms\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|D:\\FinalNT219\\FinalNT219\\musicapp\\forms\\signup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|solutionrelative:musicapp\\forms\\signup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|D:\\FinalNT219\\FinalNT219\\musicapp\\forms\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|solutionrelative:musicapp\\forms\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|D:\\FinalNT219\\FinalNT219\\musicapp\\forms\\signup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|solutionrelative:musicapp\\forms\\signup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|D:\\FinalNT219\\FinalNT219\\musicapp\\forms\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|g:\\mmh\\doan\\fasdfasdfa\\finalnt219\\musicapp\\forms\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|solutionrelative:musicapp\\forms\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|D:\\FinalNT219\\FinalNT219\\musicapp\\forms\\mainmenu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\musicapp\\forms\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|solutionrelative:musicapp\\forms\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\musicapp\\custompanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|solutionrelative:musicapp\\custompanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\musicapp\\properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
+      "RelativeMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|solutionrelative:musicapp\\properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\musicapp\\forms\\addsong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|solutionrelative:musicapp\\forms\\addsong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\musicapp\\forms\\addsong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|solutionrelative:musicapp\\forms\\addsong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\musicapp\\env\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|solutionrelative:musicapp\\env\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\musicapp\\env\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|solutionrelative:musicapp\\env\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\musicapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|solutionrelative:musicapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\musicapp\\forms\\signup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|solutionrelative:musicapp\\forms\\signup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\musicapp\\forms\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|solutionrelative:musicapp\\forms\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\musicapp\\forms\\signup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|solutionrelative:musicapp\\forms\\signup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\musicapp\\forms\\mainmenu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|solutionrelative:musicapp\\forms\\mainmenu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|D:\\FinalNT219\\FinalNT219\\musicapp\\forms\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\musicapp\\forms\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|solutionrelative:musicapp\\forms\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|D:\\FinalNT219\\FinalNT219\\musicapp\\forms\\signup.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\musicapp\\forms\\signup.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|solutionrelative:musicapp\\forms\\signup.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|D:\\FinalNT219\\FinalNT219\\musicapp\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\musicapp\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|solutionrelative:musicapp\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|D:\\FinalNT219\\FinalNT219\\musicapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\musicapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|solutionrelative:musicapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|D:\\FinalNT219\\FinalNT219\\musicapp\\forms\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\musicapp\\forms\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5AB4B5C-2874-4259-BBBA-ABCD46A5DF31}|MusicApp\\MusicApp.csproj|solutionrelative:musicapp\\forms\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -66,65 +82,116 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
+              "Title": "Resources.resx",
+              "DocumentMoniker": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\Properties\\Resources.resx",
+              "RelativeDocumentMoniker": "MusicApp\\Properties\\Resources.resx",
+              "ToolTip": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\Properties\\Resources.resx",
+              "RelativeToolTip": "MusicApp\\Properties\\Resources.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2024-06-08T11:27:56.278Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CustomPanel.cs",
+              "DocumentMoniker": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\CustomPanel.cs",
+              "RelativeDocumentMoniker": "MusicApp\\CustomPanel.cs",
+              "ToolTip": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\CustomPanel.cs",
+              "RelativeToolTip": "MusicApp\\CustomPanel.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAA1wEEAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-08T11:27:33.382Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AddSong.cs",
+              "DocumentMoniker": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\Forms\\AddSong.cs",
+              "RelativeDocumentMoniker": "MusicApp\\Forms\\AddSong.cs",
+              "ToolTip": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\Forms\\AddSong.cs",
+              "RelativeToolTip": "MusicApp\\Forms\\AddSong.cs",
+              "ViewState": "AQIAAE4AAAAAAAAAAAAAwD0AAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-08T11:26:11.625Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AddSong.cs [Design]",
+              "DocumentMoniker": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\Forms\\AddSong.cs",
+              "RelativeDocumentMoniker": "MusicApp\\Forms\\AddSong.cs",
+              "ToolTip": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\Forms\\AddSong.cs [Design]",
+              "RelativeToolTip": "MusicApp\\Forms\\AddSong.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-08T11:26:04.188Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "MainMenu.cs",
-              "DocumentMoniker": "D:\\FinalNT219\\FinalNT219\\MusicApp\\Forms\\MainMenu.cs",
+              "DocumentMoniker": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\Forms\\MainMenu.cs",
               "RelativeDocumentMoniker": "MusicApp\\Forms\\MainMenu.cs",
-              "ToolTip": "D:\\FinalNT219\\FinalNT219\\MusicApp\\Forms\\MainMenu.cs",
+              "ToolTip": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\Forms\\MainMenu.cs",
               "RelativeToolTip": "MusicApp\\Forms\\MainMenu.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAgwBAAAAAiAAAA",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAwDQAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-08T02:54:24.711Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "Service.cs",
-              "DocumentMoniker": "D:\\FinalNT219\\FinalNT219\\MusicApp\\env\\Service.cs",
+              "DocumentMoniker": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\env\\Service.cs",
               "RelativeDocumentMoniker": "MusicApp\\env\\Service.cs",
-              "ToolTip": "D:\\FinalNT219\\FinalNT219\\MusicApp\\env\\Service.cs",
+              "ToolTip": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\env\\Service.cs",
               "RelativeToolTip": "MusicApp\\env\\Service.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAA0AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T01:57:05.064Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-08T01:57:05.064Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "User.cs",
-              "DocumentMoniker": "D:\\FinalNT219\\FinalNT219\\MusicApp\\env\\User.cs",
+              "DocumentMoniker": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\env\\User.cs",
               "RelativeDocumentMoniker": "MusicApp\\env\\User.cs",
-              "ToolTip": "D:\\FinalNT219\\FinalNT219\\MusicApp\\env\\User.cs",
+              "ToolTip": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\env\\User.cs",
               "RelativeToolTip": "MusicApp\\env\\User.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T02:04:47.448Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-08T02:04:47.448Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "SignUp.cs [Design]",
-              "DocumentMoniker": "D:\\FinalNT219\\FinalNT219\\MusicApp\\Forms\\SignUp.cs",
+              "DocumentMoniker": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\Forms\\SignUp.cs",
               "RelativeDocumentMoniker": "MusicApp\\Forms\\SignUp.cs",
               "ToolTip": "D:\\FinalNT219\\FinalNT219\\MusicApp\\Forms\\SignUp.cs [Design]",
-              "RelativeToolTip": "MusicApp\\Forms\\SignUp.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-08T01:29:56.926Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "SignUp.cs",
-              "DocumentMoniker": "D:\\FinalNT219\\FinalNT219\\MusicApp\\Forms\\SignUp.cs",
+              "DocumentMoniker": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\Forms\\SignUp.cs",
               "RelativeDocumentMoniker": "MusicApp\\Forms\\SignUp.cs",
-              "ToolTip": "D:\\FinalNT219\\FinalNT219\\MusicApp\\Forms\\SignUp.cs",
+              "ToolTip": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\Forms\\SignUp.cs",
               "RelativeToolTip": "MusicApp\\Forms\\SignUp.cs",
               "ViewState": "AQIAAGIAAAAAAAAAAAAowIUAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -132,23 +199,22 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "MainMenu.cs [Design]",
-              "DocumentMoniker": "D:\\FinalNT219\\FinalNT219\\MusicApp\\Forms\\MainMenu.cs",
+              "DocumentMoniker": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\Forms\\MainMenu.cs",
               "RelativeDocumentMoniker": "MusicApp\\Forms\\MainMenu.cs",
-              "ToolTip": "D:\\FinalNT219\\FinalNT219\\MusicApp\\Forms\\MainMenu.cs [Design]",
+              "ToolTip": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\Forms\\MainMenu.cs [Design]",
               "RelativeToolTip": "MusicApp\\Forms\\MainMenu.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T01:30:11.858Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-06-08T01:30:11.858Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "Login.cs",
-              "DocumentMoniker": "D:\\FinalNT219\\FinalNT219\\MusicApp\\Forms\\Login.cs",
+              "DocumentMoniker": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\Forms\\Login.cs",
               "RelativeDocumentMoniker": "MusicApp\\Forms\\Login.cs",
-              "ToolTip": "D:\\FinalNT219\\FinalNT219\\MusicApp\\Forms\\Login.cs",
+              "ToolTip": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\Forms\\Login.cs",
               "RelativeToolTip": "MusicApp\\Forms\\Login.cs",
               "ViewState": "AQIAAD0AAAAAAAAAAAAwwFwAAABXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -156,61 +222,57 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "Program.cs",
-              "DocumentMoniker": "D:\\FinalNT219\\FinalNT219\\MusicApp\\Program.cs",
+              "DocumentMoniker": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\Program.cs",
               "RelativeDocumentMoniker": "MusicApp\\Program.cs",
-              "ToolTip": "D:\\FinalNT219\\FinalNT219\\MusicApp\\Program.cs",
+              "ToolTip": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\Program.cs",
               "RelativeToolTip": "MusicApp\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T01:30:01.224Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-08T01:30:01.224Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "MainMenu.Designer.cs",
-              "DocumentMoniker": "D:\\FinalNT219\\FinalNT219\\MusicApp\\Forms\\MainMenu.Designer.cs",
+              "DocumentMoniker": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\Forms\\MainMenu.Designer.cs",
               "RelativeDocumentMoniker": "MusicApp\\Forms\\MainMenu.Designer.cs",
-              "ToolTip": "D:\\FinalNT219\\FinalNT219\\MusicApp\\Forms\\MainMenu.Designer.cs",
+              "ToolTip": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\Forms\\MainMenu.Designer.cs",
               "RelativeToolTip": "MusicApp\\Forms\\MainMenu.Designer.cs",
               "ViewState": "AQIAAAIBAAAAAAAAAAAYwEsAAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T03:04:19.153Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-08T03:04:19.153Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "Login.cs [Design]",
-              "DocumentMoniker": "D:\\FinalNT219\\FinalNT219\\MusicApp\\Forms\\Login.cs",
+              "DocumentMoniker": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\Forms\\Login.cs",
               "RelativeDocumentMoniker": "MusicApp\\Forms\\Login.cs",
               "ToolTip": "D:\\FinalNT219\\FinalNT219\\MusicApp\\Forms\\Login.cs [Design]",
-              "RelativeToolTip": "MusicApp\\Forms\\Login.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-08T01:22:21.704Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "App.config",
-              "DocumentMoniker": "D:\\FinalNT219\\FinalNT219\\MusicApp\\App.config",
+              "DocumentMoniker": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\App.config",
               "RelativeDocumentMoniker": "MusicApp\\App.config",
-              "ToolTip": "D:\\FinalNT219\\FinalNT219\\MusicApp\\App.config",
+              "ToolTip": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\App.config",
               "RelativeToolTip": "MusicApp\\App.config",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-06-08T02:05:02.438Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-08T02:05:02.438Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\FinalNT219\\FinalNT219\\MusicApp\\appsettings.json",
+              "DocumentMoniker": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\appsettings.json",
               "RelativeDocumentMoniker": "MusicApp\\appsettings.json",
-              "ToolTip": "D:\\FinalNT219\\FinalNT219\\MusicApp\\appsettings.json",
+              "ToolTip": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\appsettings.json",
               "RelativeToolTip": "MusicApp\\appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -218,11 +280,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "SignUp.Designer.cs",
-              "DocumentMoniker": "D:\\FinalNT219\\FinalNT219\\MusicApp\\Forms\\SignUp.Designer.cs",
+              "DocumentMoniker": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\Forms\\SignUp.Designer.cs",
               "RelativeDocumentMoniker": "MusicApp\\Forms\\SignUp.Designer.cs",
-              "ToolTip": "D:\\FinalNT219\\FinalNT219\\MusicApp\\Forms\\SignUp.Designer.cs",
+              "ToolTip": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\Forms\\SignUp.Designer.cs",
               "RelativeToolTip": "MusicApp\\Forms\\SignUp.Designer.cs",
               "ViewState": "AQIAABkBAAAAAAAAAAAowDIBAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -230,11 +292,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "Login.Designer.cs",
-              "DocumentMoniker": "D:\\FinalNT219\\FinalNT219\\MusicApp\\Forms\\Login.Designer.cs",
+              "DocumentMoniker": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\Forms\\Login.Designer.cs",
               "RelativeDocumentMoniker": "MusicApp\\Forms\\Login.Designer.cs",
-              "ToolTip": "D:\\FinalNT219\\FinalNT219\\MusicApp\\Forms\\Login.Designer.cs",
+              "ToolTip": "G:\\mmh\\doan\\fasdfasdfa\\FinalNT219\\MusicApp\\Forms\\Login.Designer.cs",
               "RelativeToolTip": "MusicApp\\Forms\\Login.Designer.cs",
               "ViewState": "AQIAAF8BAAAAAAAAAAAMwHgBAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
