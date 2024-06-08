@@ -12,7 +12,7 @@ namespace MusicApp.Forms
 {
     public partial class MainMenu : Form
     {
-        public MainMenu()
+        public MainMenu(string username, string usertype)
         {
             InitializeComponent();
         }

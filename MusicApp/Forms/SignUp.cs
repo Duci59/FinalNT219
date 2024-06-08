@@ -11,23 +11,35 @@ using System.Windows.Forms;
 using System.Net.Mail;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using MusicApp.MaHoa;
+using FireSharp.Interfaces;
+using FireSharp.Response;
 
 namespace MusicApp.Forms
 {
     public partial class SignUp : Form
     {
+        private readonly Service _firebaseService;
         public SignUp()
         {
             InitializeComponent();
+            _firebaseService = new Service();
         }
         public int checkDK = 0;
-        private void HienLoi(string errormess, Control control)
+
+        private void SignUp_Load(object sender, EventArgs e)
         {
-            errorlb.Text = errormess;
-            errorlb.Visible = true;
-            control.Focus();
+
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnMinsize_Click(object sender, EventArgs e)
+        {
+            this.WindowState |= FormWindowState.Minimized;
+        }
         private bool IsValidEmail(string email)
         {
             try
@@ -35,15 +47,21 @@ namespace MusicApp.Forms
                 var addr = new System.Net.Mail.MailAddress(email);
                 return addr.Address == email;
             }
-            catch {
+            catch
+            {
                 return false;
             }
         }
 
-        private async void btSignUp_Click(object sender, EventArgs e)
+        private void HienLoi(string errormess, Control control)
         {
-            string yeuCau = "CheckTK~" + tbTDN.Text + "~" + tbDK.Text;
-            string ketQua = await Task.Run(() => Result.Instance.Request(yeuCau));
+            errorlb.Text = errormess;
+            errorlb.Visible = true;
+            control.Focus();
+        }
+
+        private async void btnSignUp_Click(object sender, EventArgs e)
+        {
             if (tbTDN.Text.Trim() == "" || tbTHT.Text.Trim() == "" || tbMK.Text.Trim() == "")
             {
                 if (tbTDN.Text.Trim() == "")
@@ -77,43 +95,47 @@ namespace MusicApp.Forms
             {
                 HienLoi("Địa chỉ Email không hợp lệ", tbDK);
             }
-            else if (ketQua == "User or email already exit")
-            {
-                HienLoi("Địa chỉ email hoặc tên đăng nhập đã tồn tại", tbTDN);
-            }
+            // Trong phương thức btSignUp_Click
             else
             {
-                errorlb.Visible = false;
+                IFirebaseClient client = _firebaseService.GetFirebaseClient();
 
-                yeuCau = "DangKi~" + tbTDN.Text.Trim().MaHoa() + "~" + tbTHT.Text.Trim().MaHoa() + "~" + tbMK.Text.Trim().MaHoa() + "~" + tbDK.Text.Trim().MaHoa() + "~" + "Normal".MaHoa();
-                ketQua = await Task.Run(()=>Result.Instance.Request(yeuCau));
+                // Kiểm tra username đã tồn tại hay chưa
+                FirebaseResponse usernameResponse = await client.GetAsync("Users");
+                if (usernameResponse.Body.Contains(tbTDN.Text.MaHoa()))
+                {
+                    MessageBox.Show("Tên đăng nhập đã tồn tại!");
+                    tbTDN.Focus();
+                    return;
+                }
 
-                if (String.IsNullOrEmpty(ketQua))
+                // Kiểm tra email đã tồn tại hay chưa
+                FirebaseResponse emailResponse = await client.GetAsync("Users");
+                if (emailResponse.Body.Contains(tbDK.Text.MaHoa()))
                 {
-                    MessageBox.Show("Máy chủ không phản hồi");
+                    MessageBox.Show("Email đã được sử dụng!");
+                    tbDK.Focus();
+                    return;
                 }
-                else if (ketQua == "OK")
+
+                var data = new User
                 {
-                    DialogResult dialogResult = MessageBox.Show("Đăng ký thành công. Đăng nhập ngay?", "Thông báo", MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        checkDK = 1;
-                        this.Close();
-                        Login login = new Login();
-                        login.Show();
-                    }
-                    else if (dialogResult == DialogResult.No)
-                    {
-                        return;
-                    }
-                }
-                else if (ketQua == "User or email already exit")
+                    displayName = tbTHT.Text.MaHoa(),
+                    password = tbMK.Text.MaHoaMotChieu(),
+                    email = tbDK.Text.MaHoa(),
+                    userType = "casual"
+                };
+
+                SetResponse response = await client.SetAsync("Users/" + tbTDN.Text.MaHoa(), data);
+
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    MessageBox.Show("Người dùng hoặc email đã tồn tại");
+                    MessageBox.Show("Đăng ký thành công!");
+                    this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Error");
+                    MessageBox.Show("Đăng ký thất bại!");
                 }
             }
         }
