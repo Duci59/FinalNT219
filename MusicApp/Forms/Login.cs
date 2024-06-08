@@ -90,7 +90,7 @@ namespace MusicApp.Forms
                     // Chuyển đến giao diện chính hoặc thực hiện các hành động khác tùy theo loại người dùng
                     MessageBox.Show("Đăng nhập thành công!", "Thông báo");
                     this.Hide();
-                    MainMenu mainMenu = new MainMenu(username.MaHoa(), usertype.MaHoa());
+                    MainMenu mainMenu = new MainMenu(username.MaHoa(), usertype);
                     mainMenu.Show();
                 }
                 else

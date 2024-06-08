@@ -12,14 +12,20 @@ namespace MusicApp.Forms
 {
     public partial class MainMenu : Form
     {
+        string Username, Usertype;
         public MainMenu(string username, string usertype)
         {
             InitializeComponent();
+            Username = username;
+            Usertype = usertype;
+            if (Usertype == "counterpart")
+                btnUploadFiles.Visible = true;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+       
         }
 
         private void btnMaxsize_Click(object sender, EventArgs e)
@@ -39,9 +45,17 @@ namespace MusicApp.Forms
             this.WindowState |= FormWindowState.Minimized;
         }
 
-        private void bunifuCustomLabel6_Click(object sender, EventArgs e)
+        private void btnUploadFiles_Click(object sender, EventArgs e)
         {
-
+            if (Usertype == "counterpart")
+            {
+                Forms.AddSong form = new Forms.AddSong(Username);
+                form.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Tính năng chỉ dành cho đối tác", "Thông báo");
+            }
         }
     }
 }
