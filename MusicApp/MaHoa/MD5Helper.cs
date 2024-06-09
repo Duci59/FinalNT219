@@ -118,7 +118,7 @@ namespace MusicApp.MaHoa
                     }
                 }
             }
-        }
+        } 
         // con cai nay la giai ma 
         public static void DecryptWavFile(string inputFile, string outputFile)
         {
