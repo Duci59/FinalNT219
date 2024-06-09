@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Numerics;
 using System.Windows.Forms;
 
@@ -8,27 +9,51 @@ namespace MusicApp
 {
     public class CustomPanel : Panel
     {
-        private PictureBox pictureBox;
-        private PictureBox pictureBoxButton;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-
-        public CustomPanel(string txt, string txt1, string t)
+        public PictureBox pictureBox;
+        public PictureBox pictureBoxButton;
+        public Label label1;
+        public Label label2;
+        public Label label3;
+        private string audiolink;
+        public CustomPanel()
         {
-            InitializeComponents(txt, txt1, t);
+            InitializeComponents("1","2","3",null,"3");
         }
 
-        private void InitializeComponents(string t, string txt, string time)
+        public CustomPanel(string txt, string txt1, string t, string img = null, string a = null)
         {
-            // Initialize PictureBox
-            pictureBox = new PictureBox
+            InitializeComponents(txt, txt1, t, img, a);
+        }
+
+        public string GetAudio()
+        {
+            return audiolink;
+        }
+
+        private void InitializeComponents(string t, string txt, string time, string img, string audio)
+        {
+            this.audiolink = audio;
+            if (img != null)
             {
-                Image = Image.FromFile("C:\\Users\\vongu\\OneDrive\\Pictures\\Screenshots\\Screenshot 2024-06-07 020512.png"),
-                SizeMode = PictureBoxSizeMode.Zoom,
-                Location = new Point(22, 6),
-                Size = new Size(67, 67)
-            };
+                // Convert img: base64 -> byte[] -> ms -> bitmap
+                byte[] b = Convert.FromBase64String(img);
+
+                MemoryStream ms = new MemoryStream();
+                ms.Write(b, 0, Convert.ToInt32(b.Length));
+
+                Bitmap bm = new Bitmap(ms, false);
+                ms.Dispose();
+
+                // Initialize PictureBox
+                pictureBox = new PictureBox
+                {
+                    Image = bm,
+                    SizeMode = PictureBoxSizeMode.Zoom,
+                    Location = new Point(22, 6),
+                    Size = new Size(67, 67)
+                };
+            }
+
 
             // Initialize PictureBoxButton as a Button
             pictureBoxButton = new PictureBox
@@ -40,14 +65,13 @@ namespace MusicApp
                 Size = new Size(40, 40),
                 Cursor = Cursors.Hand // Change cursor to hand to indicate clickable
             };
-            pictureBoxButton.Click += PictureBoxButton_Click;
 
             // Initialize Labels
             label1 = new Label
             {
                 Text = t,
-                Location = new Point(206, 28),
-                Font = new Font("Constantia", 13, FontStyle.Bold),
+                Location = new Point(150, 28),
+                Font = new Font("Segoe UI", 13, FontStyle.Bold),
                 AutoSize = true,
                 ForeColor = Color.Silver,
             };
@@ -56,17 +80,17 @@ namespace MusicApp
             {
                 Text = txt,
                 Location = new Point(428, 33),
-                Font = new Font("Century Gothic", 10, FontStyle.Regular),
+                Font = new Font("Segoe UI", 10, FontStyle.Regular),
                 AutoSize = true,
-                ForeColor = Color.Silver
+                ForeColor = Color.White
             };
 
             label3 = new Label
             {
                 Text = time,
-                Location = new Point(575, 30),
+                Location = new Point(575, 33),
                 AutoSize = true,
-                Font = new Font("Segoe UI", 9, FontStyle.Regular),
+                Font = new Font("Segoe UI", 10, FontStyle.Regular),
                 ForeColor = Color.White
             };
 
@@ -80,10 +104,6 @@ namespace MusicApp
             // Set panel properties
             Size = new Size(629, 80);
         }
-
-        private void PictureBoxButton_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("phat nhac");
-        }
+        public string AudioLink => audiolink;
     }
 }

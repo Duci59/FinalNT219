@@ -1,13 +1,16 @@
 ﻿using FireSharp.Interfaces;
 using FireSharp.Response;
+using Google.Cloud.Storage.V1;
 using MusicApp.env;
+using MusicApp.MaHoa;
+using NAudio.Lame;
+using NAudio.Wave;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.IO;
+using System.Net;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,20 +19,25 @@ namespace MusicApp.Forms
     public partial class MainMenu : Form
     {
         string Username, Usertype;
-        private readonly Service firebaseService;
+        private readonly Service _firebaseService;
+        private readonly StorageClient _storageClient;
+        private readonly IFirebaseClient client;
+        private IWavePlayer waveOut;
+        private WaveStream mp3Reader;
+
         public MainMenu(string username, string usertype)
         {
             InitializeComponent();
+            _firebaseService = new Service();
+            _storageClient = _firebaseService.GetStorageClient();
+            client = _firebaseService.GetFirebaseClient();
             Username = username;
             Usertype = usertype;
-            if (Usertype == "counterpart")
-                btnUploadFiles.Visible = true;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
-       
         }
 
         private void btnMaxsize_Click(object sender, EventArgs e)
@@ -44,34 +52,144 @@ namespace MusicApp.Forms
             }
         }
 
+        private string ConvertGsToHttps(string gsUrl)
+        {
+            const string baseUrl = "https://firebasestorage.googleapis.com/v0/b/";
+
+            // Extract bucket and path from the gsUrl
+            var match = Regex.Match(gsUrl, @"gs://([^/]+)/(.+)");
+            if (!match.Success)
+            {
+                throw new ArgumentException("Invalid gsUrl format", nameof(gsUrl));
+            }
+
+            string bucket = match.Groups[1].Value;
+            string path = match.Groups[2].Value.Replace("/", "%2F");
+
+            return $"{baseUrl}{bucket}/o/{path}?alt=media";
+        }
+
+        private void PlayAudioFromUrl(string url)
+        {
+            if (waveOut != null && waveOut.PlaybackState == PlaybackState.Playing)
+            {
+                waveOut.Stop();
+            }
+
+            if (waveOut != null)
+            {
+                waveOut.Dispose();
+                waveOut = null;
+            }
+
+            if (mp3Reader != null)
+            {
+                mp3Reader.Dispose();
+                mp3Reader = null;
+            }
+
+            waveOut = new WaveOutEvent();
+
+            using (var webClient = new WebClient())
+            {
+                byte[] audioData = webClient.DownloadData(url);
+
+                string tempEncryptedFile = Path.Combine(Path.GetTempPath(), "encryptedAudio.wav");
+                string tempDecryptedFile = Path.Combine(Path.GetTempPath(), "decryptedAudio.wav");
+                string tempMp3File = Path.Combine(Path.GetTempPath(), "audio.mp3");
+
+                File.WriteAllBytes(tempEncryptedFile, audioData);
+
+                // Giải mã file đã tải xuống
+                MD5Helper.DecryptWavFile(tempEncryptedFile, tempDecryptedFile);
+
+                // Chuyển đổi WAV sang MP3
+                using (var reader = new AudioFileReader(tempDecryptedFile))
+                {
+                    using (var writer = new LameMP3FileWriter(tempMp3File, reader.WaveFormat, LAMEPreset.STANDARD))
+                    {
+                        reader.CopyTo(writer);
+                    }
+                }
+
+                // Đọc và phát file đã giải mã
+                mp3Reader = new Mp3FileReader(tempMp3File);
+                waveOut.Init(mp3Reader);
+                waveOut.Play();
+
+                // Xóa các file tạm
+                File.Delete(tempEncryptedFile);
+                File.Delete(tempDecryptedFile);
+                File.Delete(tempMp3File);
+            }
+        }
+
+
+
+
+        private void PictureBoxButton_Click(object sender, EventArgs e)
+        {
+            // Lấy CustomPanel chứa PictureBoxButton đã được click
+            PictureBox clickedButton = sender as PictureBox;
+            CustomPanel parentPanel = clickedButton.Parent as CustomPanel;
+
+            if (parentPanel != null)
+            {
+                // Lấy AudioLink từ CustomPanel và phát âm thanh
+                string audioLink = parentPanel.AudioLink;
+                string audioUrl = ConvertGsToHttps(audioLink);
+                PlayAudioFromUrl(audioUrl);
+            }
+        }
+
+        private async Task LoadSongs()
+        {
+            FirebaseResponse response = await client.GetAsync("Songs/");
+            if (response != null)
+            {
+                Dictionary<string, Song> songs = response.ResultAs<Dictionary<string, Song>>();
+                int y = 0;
+                foreach (var song in songs)
+                {
+                    try
+                    {
+                        string nameSong = song.Value.NameSong.ToString().GiaiMa(); // Giải mã tên bài hát
+                        string nameSinger = song.Value.NameSinger.ToString().GiaiMa(); // Giải mã tên ca sĩ
+
+                        CustomPanel pn = new CustomPanel(nameSong, nameSinger, song.Value.SongTime, song.Value.Img, song.Value.Audio)
+                        {
+                            Location = new Point(0, y), // Đặt vị trí của CustomPanel theo vị trí y hiện tại
+                        };
+                        y += pn.Height + 10;  // Tăng vị trí y để các CustomPanel được đặt cách nhau 10 pixel dọc
+                        pn.pictureBoxButton.Click += PictureBoxButton_Click;
+                        panel6.Controls.Add(pn);
+                    }
+                    catch (Exception ex)
+                    {
+                        // Log lỗi hoặc xử lý lỗi giải mã
+                        MessageBox.Show("Lỗi khi giải mã dữ liệu: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+
         private void btnMinsize_Click(object sender, EventArgs e)
         {
             this.WindowState |= FormWindowState.Minimized;
         }
-        string[] activities = { "Lối Nhỏ", "Một triệu like", "Đi Về Nhà" };
-        string[] auth = { "Đen Vâu", "Đen", "Vâu " };
-        string[] time = { "3:32", "3:42", "4:00" };
-        private void MainMenu_Load(object sender, EventArgs e)
+
+        private async void MainMenu_Load(object sender, EventArgs e)
         {
-            int y = 0; // Đặt vị trí y ban đầu là 0
-            for (int i = 0; i < 12; i++)
-            {
-                CustomPanel pn = new CustomPanel("Lối Nhỏ", "Đen Vâu", "3:32")
-                {
-                    Location = new Point(0, y), // Đặt vị trí của CustomPanel theo vị trí y hiện tại
-                };
-                y += pn.Height + 10; // Tăng vị trí y để các CustomPanel được đặt cách nhau 10 pixel dọc
-                panel6.Controls.Add(pn);
-            }
+            await LoadSongs();
         }
 
         private async void btnPlayMusic_Click(object sender, EventArgs e)
         {
-            IFirebaseClient client = firebaseService.GetFirebaseClient();
-
-            // Kiểm tra username đã tồn tại hay chưa
-            FirebaseResponse usernameResponse = await client.GetAsync("Songsd");
-
+            // Chức năng play nhạc từ nút bấm (nếu cần thiết)
         }
 
         private void btnUploadFiles_Click(object sender, EventArgs e)
