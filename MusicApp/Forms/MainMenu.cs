@@ -94,7 +94,6 @@ namespace MusicApp.Forms
             }
 
             waveOut = new WaveOutEvent();
-
             using (var webClient = new WebClient())
             {
                 byte[] audioData = webClient.DownloadData(url);
@@ -131,6 +130,7 @@ namespace MusicApp.Forms
         //test
         private async Task PlayEncryptedAudioFromUrl(string url)
         {
+            MessageBox.Show(url);
             try
             {
                 // Download the encrypted audio file
@@ -242,6 +242,70 @@ namespace MusicApp.Forms
             }
         }
 
+        private async void DownloadButton_Click(object sender, EventArgs e)
+        {
+            if (Usertype == "premium" || Usertype == "counterpart")
+            {
+                try
+                {
+                    // Get the parent CustomPanel of the clicked button
+                    PictureBox clickedButton = sender as PictureBox;
+                    CustomPanel parentPanel = clickedButton.Parent as CustomPanel;
+
+                    if (parentPanel != null)
+                    {
+                        // Get the AudioLink from the CustomPanel
+                        string audioLink = parentPanel.AudioLink;
+                        string audioUrl = ConvertGsToHttps(audioLink);
+
+                        using (HttpClient httpClient = new HttpClient())
+                        {
+                            HttpResponseMessage response = await httpClient.GetAsync(audioUrl);
+                            response.EnsureSuccessStatusCode();
+                            byte[] encryptedAudioData = await response.Content.ReadAsByteArrayAsync();
+
+                            // Show SaveFileDialog to let the user choose the download location
+                            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+                            {
+                                saveFileDialog.Filter = "MP3 files (*.mp3)|*.mp3|All files (*.*)|*.*";
+                                saveFileDialog.FileName = $"{parentPanel.NAMESONG}.mp3";
+
+                                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                                {
+                                    string encryptedFilePath = Path.GetTempFileName();
+                                    File.WriteAllBytes(encryptedFilePath, encryptedAudioData);
+
+                                    string decryptedFilePath = saveFileDialog.FileName;
+
+                                    // Decrypt the downloaded file
+                                    MD5Helper.DecryptWavFile(encryptedFilePath, decryptedFilePath);
+
+                                    // Clean up the temporary encrypted file
+                                    File.Delete(encryptedFilePath);
+
+                                    MessageBox.Show("File downloaded and decrypted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (HttpRequestException httpEx)
+                {
+                    MessageBox.Show($"Error downloading audio: {httpEx.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chỉ đối tác hoặc tài khoản premium mới có thể down nhạc");
+            }
+        }
+
+
+
         private async Task LoadSongs()
         {
             panel6.Controls.Clear();
@@ -267,6 +331,7 @@ namespace MusicApp.Forms
                         };
                         y += pn.Height + 10;  // Tăng vị trí y để các CustomPanel được đặt cách nhau 10 pixel dọc
                         pn.pictureBoxButton.Click += PictureBoxButton_Click;
+                        pn.downloadButon.Click += DownloadButton_Click;
                         panel6.Controls.Add(pn);
                     }
                     catch (Exception ex)

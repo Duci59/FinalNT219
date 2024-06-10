@@ -11,6 +11,7 @@ namespace MusicApp
     {
         public PictureBox pictureBox;
         public PictureBox pictureBoxButton;
+        public PictureBox downloadButon;
         public Label label1;
         public Label label2;
         public Label label3;
@@ -61,12 +62,20 @@ namespace MusicApp
 
 
             // Initialize PictureBoxButton as a Button
+            downloadButon = new PictureBox
+            {
+                Image = Properties.Resources.icons8_download_64,
+                SizeMode = PictureBoxSizeMode.Zoom,
+                Location = new Point(150, 19),
+                Size = new Size(40, 40),
+                Cursor = Cursors.Hand // Change cursor to hand to indicate clickable
+            };
+
             pictureBoxButton = new PictureBox
             {
                 Image = Properties.Resources.icons8_circled_play_50,
                 SizeMode = PictureBoxSizeMode.Zoom,
                 Location = new Point(104, 22),
-
                 Size = new Size(40, 40),
                 Cursor = Cursors.Hand // Change cursor to hand to indicate clickable
             };
@@ -75,25 +84,29 @@ namespace MusicApp
             label1 = new Label
             {
                 Text = t,
-                Location = new Point(150, 28),
+                Location = new Point(200, 28),
                 Font = new Font("Segoe UI", 13, FontStyle.Bold),
                 AutoSize = true,
+                MaximumSize = new Size(200, 0), // Set maximum width
+                AutoEllipsis = true, // Enable ellipsis if text exceeds maximum width
                 ForeColor = Color.Silver,
             };
 
             label2 = new Label
             {
                 Text = txt,
-                Location = new Point(428, 33),
+                Location = new Point(418, 33), // Maintain your original position
                 Font = new Font("Segoe UI", 10, FontStyle.Regular),
                 AutoSize = true,
+                MaximumSize = new Size(150, 0), // Set maximum width
+                AutoEllipsis = true, // Enable ellipsis if text exceeds maximum width
                 ForeColor = Color.White
             };
 
             label3 = new Label
             {
                 Text = time,
-                Location = new Point(575, 33),
+                Location = new Point(585, 33),
                 AutoSize = true,
                 Font = new Font("Segoe UI", 10, FontStyle.Regular),
                 ForeColor = Color.White
@@ -105,6 +118,7 @@ namespace MusicApp
             Controls.Add(label1);
             Controls.Add(label2);
             Controls.Add(label3);
+            Controls.Add(downloadButon);
 
             // Set panel properties
             Size = new Size(629, 80);
