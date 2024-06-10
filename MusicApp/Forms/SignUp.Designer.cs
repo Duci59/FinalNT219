@@ -71,6 +71,7 @@
             this.tbMK = new Bunifu.UI.WinForms.BunifuTextBox();
             this.tbNLMK = new Bunifu.UI.WinForms.BunifuTextBox();
             this.errorlb = new System.Windows.Forms.Label();
+            this.bunifuDragControl2 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.SuspendLayout();
             // 
             // panel1
@@ -157,11 +158,11 @@
             this.btnSignUp.OnIdleState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnSignUp.OnIdleState.IconLeftImage = null;
             this.btnSignUp.OnIdleState.IconRightImage = null;
-            this.btnSignUp.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.btnSignUp.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(216)))), ((int)(((byte)(87)))));
             this.btnSignUp.OnPressedState.BorderRadius = 30;
             this.btnSignUp.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
             this.btnSignUp.OnPressedState.BorderThickness = 1;
-            this.btnSignUp.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.btnSignUp.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(216)))), ((int)(((byte)(87)))));
             this.btnSignUp.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.btnSignUp.OnPressedState.IconLeftImage = null;
             this.btnSignUp.OnPressedState.IconRightImage = null;
@@ -820,6 +821,13 @@
             this.errorlb.Text = "error";
             this.errorlb.Visible = false;
             // 
+            // bunifuDragControl2
+            // 
+            this.bunifuDragControl2.Fixed = true;
+            this.bunifuDragControl2.Horizontal = true;
+            this.bunifuDragControl2.TargetControl = this;
+            this.bunifuDragControl2.Vertical = true;
+            // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -875,5 +883,6 @@
         private Bunifu.UI.WinForms.BunifuTextBox tbMK;
         private Bunifu.UI.WinForms.BunifuTextBox tbNLMK;
         private System.Windows.Forms.Label errorlb;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl2;
     }
 }

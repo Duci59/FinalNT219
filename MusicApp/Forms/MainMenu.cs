@@ -27,7 +27,8 @@ namespace MusicApp.Forms
         private WaveStream mp3Reader;
         private WaveOutEvent outputDevice;
         private MediaFoundationReader mediaReader;
-       
+        private float previousVolume = 1.0f;  // Lưu âm thanh trước khi mute
+
         public MainMenu(string username, string usertype)
         {
             InitializeComponent();
@@ -184,6 +185,8 @@ namespace MusicApp.Forms
                 outputDevice = new WaveOutEvent();
                 outputDevice.Init(mediaReader);
                 outputDevice.Play();
+                btnPauseMusic.Visible = true;
+                btnPlayMusic.Visible = false;
                 MessageBox.Show("OK");
             }
             catch (Exception ex)
@@ -288,27 +291,7 @@ namespace MusicApp.Forms
             await LoadSongs();
         }
 
-        private async void btnPlayMusic_Click(object sender, EventArgs e)
-        {
-            // Chức năng play nhạc từ nút bấm (nếu cần thiết)
-            if (outputDevice != null)
-            {
-                if (outputDevice.PlaybackState == PlaybackState.Playing)
-                {
-                    // If music is playing, pause it
-                    outputDevice.Pause();
-                }
-                else if (outputDevice.PlaybackState == PlaybackState.Paused)
-                {
-                    // If music is paused, resume it
-                    outputDevice.Play();
-                }
-            }
-            else
-            {
-                MessageBox.Show("No music is currently loaded.");
-            }
-        }
+        
 
         private async void btnReload_Click(object sender, EventArgs e)
         {
@@ -349,6 +332,75 @@ namespace MusicApp.Forms
         private async void btnBack_Click(object sender, EventArgs e)
         {
             await SeekBackward(5);
+        }
+        private async void btnPlayMusic_Click(object sender, EventArgs e)
+        {
+            // Chức năng play nhạc từ nút bấm (nếu cần thiết)
+            if (outputDevice != null)
+            {
+                if (outputDevice.PlaybackState == PlaybackState.Playing)
+                {
+                    // If music is playing, pause it
+                    outputDevice.Pause();
+                }
+                else if (outputDevice.PlaybackState == PlaybackState.Paused)
+                {
+                    // If music is paused, resume it
+                    outputDevice.Play();
+                    btnPauseMusic.Visible = true;
+                    btnPlayMusic.Visible = false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("No music is currently loaded.");
+            }
+        }
+        private void btnPauseMusic_Click(object sender, EventArgs e)
+        {
+            if (outputDevice != null)
+            {
+                if (outputDevice.PlaybackState == PlaybackState.Playing)
+                {
+                    // If music is playing, pause it
+                    outputDevice.Pause();
+                    btnPauseMusic.Visible = false;
+                    btnPlayMusic.Visible = true ;
+                }
+                else if (outputDevice.PlaybackState == PlaybackState.Paused)
+                {
+                    // If music is paused, resume it
+                    outputDevice.Play();
+                }
+            }
+            else
+            {
+                MessageBox.Show("No music is currently loaded.");
+            }
+        }
+
+        private void btnUnmute_Click(object sender, EventArgs e)
+        {
+            if (outputDevice != null)
+            {
+                // Restore the volume to the previous level before muting
+                outputDevice.Volume = previousVolume;
+                btnUnmute.Visible = false;
+                btnMute.Visible = true;
+            }
+        }
+
+        private void btnMute_Click(object sender, EventArgs e)
+        {
+            if (outputDevice != null)
+            {
+                // Store the current volume level
+                previousVolume = outputDevice.Volume;
+                // Set the volume to 0 to mute the audio
+                outputDevice.Volume = 0;
+                btnUnmute.Visible = true;
+                btnMute.Visible = false;
+            }
         }
 
         private void btnUploadFiles_Click(object sender, EventArgs e)
