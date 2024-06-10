@@ -187,7 +187,7 @@ namespace MusicApp.Forms
                 outputDevice.Play();
                 btnPauseMusic.Visible = true;
                 btnPlayMusic.Visible = false;
-                MessageBox.Show("OK");
+                //MessageBox.Show("OK");
             }
             catch (Exception ex)
             {
@@ -400,6 +400,28 @@ namespace MusicApp.Forms
                 outputDevice.Volume = 0;
                 btnUnmute.Visible = true;
                 btnMute.Visible = false;
+            }
+        }
+
+        private void bunifuHSlider2_ValueChanged(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs e)
+        {
+            // Adjust the audio volume based on the slider value
+            if (outputDevice != null)
+            {
+                outputDevice.Volume = (float)bunifuHSlider2.Value / 100.0f;
+            }
+        }
+
+        private void bunifuHSlider1_ValueChanged(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs e)
+        {
+            // Calculate the new position based on the slider value and total duration
+            if (mediaReader != null)
+            {
+                double newPositionSeconds = mediaReader.TotalTime.TotalSeconds * (double)bunifuHSlider1.Value / 100.0;
+                TimeSpan newPosition = TimeSpan.FromSeconds(newPositionSeconds);
+
+                // Set the new playback position
+                mediaReader.CurrentTime = newPosition;
             }
         }
 

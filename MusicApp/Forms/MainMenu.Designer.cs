@@ -58,6 +58,8 @@
             this.btnClose = new Bunifu.UI.WinForms.BunifuImageButton();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnMute = new Bunifu.UI.WinForms.BunifuImageButton();
+            this.btnPauseMusic = new Bunifu.UI.WinForms.BunifuImageButton();
             this.bunifuImageButton9 = new Bunifu.UI.WinForms.BunifuImageButton();
             this.bunifuImageButton8 = new Bunifu.UI.WinForms.BunifuImageButton();
             this.bunifuImageButton7 = new Bunifu.UI.WinForms.BunifuImageButton();
@@ -82,8 +84,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bunifuColorTransition1 = new Bunifu.UI.WinForms.BunifuColorTransition(this.components);
-            this.btnPauseMusic = new Bunifu.UI.WinForms.BunifuImageButton();
-            this.btnMute = new Bunifu.UI.WinForms.BunifuImageButton();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -973,6 +973,78 @@
             this.panel3.Size = new System.Drawing.Size(977, 118);
             this.panel3.TabIndex = 2;
             // 
+            // btnMute
+            // 
+            this.btnMute.ActiveImage = null;
+            this.btnMute.AllowAnimations = true;
+            this.btnMute.AllowBuffering = false;
+            this.btnMute.AllowToggling = false;
+            this.btnMute.AllowZooming = true;
+            this.btnMute.AllowZoomingOnFocus = false;
+            this.btnMute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMute.BackColor = System.Drawing.Color.Transparent;
+            this.btnMute.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnMute.ErrorImage = ((System.Drawing.Image)(resources.GetObject("btnMute.ErrorImage")));
+            this.btnMute.FadeWhenInactive = false;
+            this.btnMute.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.btnMute.Image = ((System.Drawing.Image)(resources.GetObject("btnMute.Image")));
+            this.btnMute.ImageActive = null;
+            this.btnMute.ImageLocation = null;
+            this.btnMute.ImageMargin = 0;
+            this.btnMute.ImageSize = new System.Drawing.Size(30, 29);
+            this.btnMute.ImageZoomSize = new System.Drawing.Size(31, 30);
+            this.btnMute.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnMute.InitialImage")));
+            this.btnMute.Location = new System.Drawing.Point(787, 64);
+            this.btnMute.Name = "btnMute";
+            this.btnMute.Rotation = 0;
+            this.btnMute.ShowActiveImage = true;
+            this.btnMute.ShowCursorChanges = true;
+            this.btnMute.ShowImageBorders = true;
+            this.btnMute.ShowSizeMarkers = false;
+            this.btnMute.Size = new System.Drawing.Size(31, 30);
+            this.btnMute.TabIndex = 13;
+            this.btnMute.ToolTipText = "";
+            this.btnMute.WaitOnLoad = false;
+            this.btnMute.Zoom = 0;
+            this.btnMute.ZoomSpeed = 10;
+            this.btnMute.Click += new System.EventHandler(this.btnMute_Click);
+            // 
+            // btnPauseMusic
+            // 
+            this.btnPauseMusic.ActiveImage = null;
+            this.btnPauseMusic.AllowAnimations = true;
+            this.btnPauseMusic.AllowBuffering = false;
+            this.btnPauseMusic.AllowToggling = false;
+            this.btnPauseMusic.AllowZooming = true;
+            this.btnPauseMusic.AllowZoomingOnFocus = false;
+            this.btnPauseMusic.BackColor = System.Drawing.Color.Transparent;
+            this.btnPauseMusic.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnPauseMusic.ErrorImage = ((System.Drawing.Image)(resources.GetObject("btnPauseMusic.ErrorImage")));
+            this.btnPauseMusic.FadeWhenInactive = false;
+            this.btnPauseMusic.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.btnPauseMusic.Image = ((System.Drawing.Image)(resources.GetObject("btnPauseMusic.Image")));
+            this.btnPauseMusic.ImageActive = null;
+            this.btnPauseMusic.ImageLocation = null;
+            this.btnPauseMusic.ImageMargin = 0;
+            this.btnPauseMusic.ImageSize = new System.Drawing.Size(54, 54);
+            this.btnPauseMusic.ImageZoomSize = new System.Drawing.Size(55, 55);
+            this.btnPauseMusic.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnPauseMusic.InitialImage")));
+            this.btnPauseMusic.Location = new System.Drawing.Point(450, 51);
+            this.btnPauseMusic.Name = "btnPauseMusic";
+            this.btnPauseMusic.Rotation = 0;
+            this.btnPauseMusic.ShowActiveImage = true;
+            this.btnPauseMusic.ShowCursorChanges = true;
+            this.btnPauseMusic.ShowImageBorders = true;
+            this.btnPauseMusic.ShowSizeMarkers = false;
+            this.btnPauseMusic.Size = new System.Drawing.Size(55, 55);
+            this.btnPauseMusic.TabIndex = 5;
+            this.btnPauseMusic.ToolTipText = "";
+            this.btnPauseMusic.Visible = false;
+            this.btnPauseMusic.WaitOnLoad = false;
+            this.btnPauseMusic.Zoom = 0;
+            this.btnPauseMusic.ZoomSpeed = 10;
+            this.btnPauseMusic.Click += new System.EventHandler(this.btnPauseMusic_Click);
+            // 
             // bunifuImageButton9
             // 
             this.bunifuImageButton9.ActiveImage = null;
@@ -1317,6 +1389,7 @@
             this.bunifuHSlider2.ThumbSize = Bunifu.UI.WinForms.BunifuHSlider.ThumbSizes.Medium;
             this.bunifuHSlider2.ThumbStyle = Bunifu.UI.WinForms.BunifuHSlider.ThumbStyles.Outline;
             this.bunifuHSlider2.Value = 10;
+            this.bunifuHSlider2.ValueChanged += new System.EventHandler<Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs>(this.bunifuHSlider2_ValueChanged);
             // 
             // bunifuHSlider1
             // 
@@ -1366,6 +1439,7 @@
             this.bunifuHSlider1.ThumbSize = Bunifu.UI.WinForms.BunifuHSlider.ThumbSizes.Medium;
             this.bunifuHSlider1.ThumbStyle = Bunifu.UI.WinForms.BunifuHSlider.ThumbStyles.Outline;
             this.bunifuHSlider1.Value = 0;
+            this.bunifuHSlider1.ValueChanged += new System.EventHandler<Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs>(this.bunifuHSlider1_ValueChanged);
             // 
             // bunifuDragControl1
             // 
@@ -1718,78 +1792,6 @@
             this.bunifuColorTransition1.ProgessValue = 0;
             this.bunifuColorTransition1.StartColor = System.Drawing.Color.White;
             this.bunifuColorTransition1.TransitionControl = null;
-            // 
-            // btnPauseMusic
-            // 
-            this.btnPauseMusic.ActiveImage = null;
-            this.btnPauseMusic.AllowAnimations = true;
-            this.btnPauseMusic.AllowBuffering = false;
-            this.btnPauseMusic.AllowToggling = false;
-            this.btnPauseMusic.AllowZooming = true;
-            this.btnPauseMusic.AllowZoomingOnFocus = false;
-            this.btnPauseMusic.BackColor = System.Drawing.Color.Transparent;
-            this.btnPauseMusic.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnPauseMusic.ErrorImage = ((System.Drawing.Image)(resources.GetObject("btnPauseMusic.ErrorImage")));
-            this.btnPauseMusic.FadeWhenInactive = false;
-            this.btnPauseMusic.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
-            this.btnPauseMusic.Image = ((System.Drawing.Image)(resources.GetObject("btnPauseMusic.Image")));
-            this.btnPauseMusic.ImageActive = null;
-            this.btnPauseMusic.ImageLocation = null;
-            this.btnPauseMusic.ImageMargin = 0;
-            this.btnPauseMusic.ImageSize = new System.Drawing.Size(54, 54);
-            this.btnPauseMusic.ImageZoomSize = new System.Drawing.Size(55, 55);
-            this.btnPauseMusic.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnPauseMusic.InitialImage")));
-            this.btnPauseMusic.Location = new System.Drawing.Point(450, 51);
-            this.btnPauseMusic.Name = "btnPauseMusic";
-            this.btnPauseMusic.Rotation = 0;
-            this.btnPauseMusic.ShowActiveImage = true;
-            this.btnPauseMusic.ShowCursorChanges = true;
-            this.btnPauseMusic.ShowImageBorders = true;
-            this.btnPauseMusic.ShowSizeMarkers = false;
-            this.btnPauseMusic.Size = new System.Drawing.Size(55, 55);
-            this.btnPauseMusic.TabIndex = 5;
-            this.btnPauseMusic.ToolTipText = "";
-            this.btnPauseMusic.Visible = false;
-            this.btnPauseMusic.WaitOnLoad = false;
-            this.btnPauseMusic.Zoom = 0;
-            this.btnPauseMusic.ZoomSpeed = 10;
-            this.btnPauseMusic.Click += new System.EventHandler(this.btnPauseMusic_Click);
-            // 
-            // btnMute
-            // 
-            this.btnMute.ActiveImage = null;
-            this.btnMute.AllowAnimations = true;
-            this.btnMute.AllowBuffering = false;
-            this.btnMute.AllowToggling = false;
-            this.btnMute.AllowZooming = true;
-            this.btnMute.AllowZoomingOnFocus = false;
-            this.btnMute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMute.BackColor = System.Drawing.Color.Transparent;
-            this.btnMute.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnMute.ErrorImage = ((System.Drawing.Image)(resources.GetObject("btnMute.ErrorImage")));
-            this.btnMute.FadeWhenInactive = false;
-            this.btnMute.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
-            this.btnMute.Image = ((System.Drawing.Image)(resources.GetObject("btnMute.Image")));
-            this.btnMute.ImageActive = null;
-            this.btnMute.ImageLocation = null;
-            this.btnMute.ImageMargin = 0;
-            this.btnMute.ImageSize = new System.Drawing.Size(30, 29);
-            this.btnMute.ImageZoomSize = new System.Drawing.Size(31, 30);
-            this.btnMute.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnMute.InitialImage")));
-            this.btnMute.Location = new System.Drawing.Point(787, 64);
-            this.btnMute.Name = "btnMute";
-            this.btnMute.Rotation = 0;
-            this.btnMute.ShowActiveImage = true;
-            this.btnMute.ShowCursorChanges = true;
-            this.btnMute.ShowImageBorders = true;
-            this.btnMute.ShowSizeMarkers = false;
-            this.btnMute.Size = new System.Drawing.Size(31, 30);
-            this.btnMute.TabIndex = 13;
-            this.btnMute.ToolTipText = "";
-            this.btnMute.WaitOnLoad = false;
-            this.btnMute.Zoom = 0;
-            this.btnMute.ZoomSpeed = 10;
-            this.btnMute.Click += new System.EventHandler(this.btnMute_Click);
             // 
             // MainMenu
             // 
