@@ -184,6 +184,7 @@ namespace MusicApp.Forms
                 outputDevice = new WaveOutEvent();
                 outputDevice.Init(mediaReader);
                 outputDevice.Play();
+                MessageBox.Show("OK");
             }
             catch (Exception ex)
             {
@@ -200,6 +201,35 @@ namespace MusicApp.Forms
             PictureBox clickedButton = sender as PictureBox;
             CustomPanel parentPanel = clickedButton.Parent as CustomPanel;
 
+            //Xử lý khi bật nhạc
+            lbSinger2.Text = parentPanel.NAMESINGER;
+            lbSinger1.Text = parentPanel.NAMESINGER;
+            lbSong.Text = parentPanel.NAMESONG;
+            lbTimeEnd.Text = parentPanel.TIME;
+            byte[] b = Convert.FromBase64String(parentPanel.IMG);
+
+            MemoryStream ms = new MemoryStream();
+            ms.Write(b, 0, Convert.ToInt32(b.Length));
+
+            Bitmap bm = new Bitmap(ms, false);
+            ms.Dispose();
+            Bitmap resizedImage = new Bitmap(312, 347);
+            using (Graphics g = Graphics.FromImage(resizedImage))
+            {
+                g.DrawImage(bm, 0, 0, 312, 347);
+            }
+
+            pictureBox1.Image = resizedImage;
+
+            Bitmap resizedImage2 = new Bitmap(977, 295);
+
+            using (Graphics g = Graphics.FromImage(resizedImage2))
+            {
+                g.DrawImage(bm, 0, 0, 977, 295);
+            }
+
+            panel2.BackgroundImage = resizedImage;
+
             if (parentPanel != null)
             {
                 // Lấy AudioLink từ CustomPanel và phát âm thanh
@@ -211,10 +241,15 @@ namespace MusicApp.Forms
 
         private async Task LoadSongs()
         {
+            panel6.Controls.Clear();
             FirebaseResponse response = await client.GetAsync("Songs/");
             if (response != null)
             {
                 Dictionary<string, Song> songs = response.ResultAs<Dictionary<string, Song>>();
+                if (songs == null)
+                {
+                    return;
+                }
                 int y = 0;
                 foreach (var song in songs)
                 {
@@ -256,6 +291,64 @@ namespace MusicApp.Forms
         private async void btnPlayMusic_Click(object sender, EventArgs e)
         {
             // Chức năng play nhạc từ nút bấm (nếu cần thiết)
+            if (outputDevice != null)
+            {
+                if (outputDevice.PlaybackState == PlaybackState.Playing)
+                {
+                    // If music is playing, pause it
+                    outputDevice.Pause();
+                }
+                else if (outputDevice.PlaybackState == PlaybackState.Paused)
+                {
+                    // If music is paused, resume it
+                    outputDevice.Play();
+                }
+            }
+            else
+            {
+                MessageBox.Show("No music is currently loaded.");
+            }
+        }
+
+        private async void btnReload_Click(object sender, EventArgs e)
+        {
+            await LoadSongs();
+        }
+
+        private async Task SeekForward(int seconds)
+        {
+            if (mediaReader != null)
+            {
+                TimeSpan newPosition = mediaReader.CurrentTime.Add(TimeSpan.FromSeconds(seconds));
+                if (newPosition > mediaReader.TotalTime)
+                {
+                    newPosition = mediaReader.TotalTime;
+                }
+                mediaReader.CurrentTime = newPosition;
+            }
+        }
+
+        private async Task SeekBackward(int seconds)
+        {
+            if (mediaReader != null)
+            {
+                TimeSpan newPosition = mediaReader.CurrentTime.Subtract(TimeSpan.FromSeconds(seconds));
+                if (newPosition < TimeSpan.Zero)
+                {
+                    newPosition = TimeSpan.Zero;
+                }
+                mediaReader.CurrentTime = newPosition;
+            }
+        }
+
+        private async void btnNext_Click(object sender, EventArgs e)
+        {
+            await SeekForward(5);
+        }
+
+        private async void btnBack_Click(object sender, EventArgs e)
+        {
+            await SeekBackward(5);
         }
 
         private void btnUploadFiles_Click(object sender, EventArgs e)

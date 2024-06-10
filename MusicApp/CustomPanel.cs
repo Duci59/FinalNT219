@@ -15,20 +15,24 @@ namespace MusicApp
         public Label label2;
         public Label label3;
         private string audiolink;
+        private string img;
+        private string namesong;
+        private string namesinger;
+        private string time;
         public CustomPanel()
         {
-            InitializeComponents("1","2","3",null,"3");
+            InitializeComponents("1", "2", "3", null, "3");
         }
 
         public CustomPanel(string txt, string txt1, string t, string img = null, string a = null)
         {
+            this.img = img;
+            this.namesong = txt;
+            this.namesinger = txt1;
+            this.time = t;
             InitializeComponents(txt, txt1, t, img, a);
         }
 
-        public string GetAudio()
-        {
-            return audiolink;
-        }
 
         private void InitializeComponents(string t, string txt, string time, string img, string audio)
         {
@@ -43,6 +47,7 @@ namespace MusicApp
 
                 Bitmap bm = new Bitmap(ms, false);
                 ms.Dispose();
+
 
                 // Initialize PictureBox
                 pictureBox = new PictureBox
@@ -105,5 +110,9 @@ namespace MusicApp
             Size = new Size(629, 80);
         }
         public string AudioLink => audiolink;
+        public string IMG => img;
+        public string NAMESONG => namesong;
+        public string NAMESINGER => namesinger;
+        public string TIME => time;
     }
 }
