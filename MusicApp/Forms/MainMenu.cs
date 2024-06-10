@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Net;
+using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,7 +25,9 @@ namespace MusicApp.Forms
         private readonly IFirebaseClient client;
         private IWavePlayer waveOut;
         private WaveStream mp3Reader;
-
+        private WaveOutEvent outputDevice;
+        private MediaFoundationReader mediaReader;
+       
         public MainMenu(string username, string usertype)
         {
             InitializeComponent();
@@ -51,6 +54,7 @@ namespace MusicApp.Forms
                 this.WindowState = FormWindowState.Maximized;
             }
         }
+
 
         private string ConvertGsToHttps(string gsUrl)
         {
@@ -123,9 +127,72 @@ namespace MusicApp.Forms
                 File.Delete(tempMp3File);
             }
         }
+        //test
+        private async Task PlayEncryptedAudioFromUrl(string url)
+        {
+            try
+            {
+                // Download the encrypted audio file
+                string encryptedFilePath = Path.GetTempFileName();
+                using (HttpClient httpClient = new HttpClient())
+                {
+                    HttpResponseMessage response = await httpClient.GetAsync(url);
+                    response.EnsureSuccessStatusCode();
+                    byte[] fileBytes = await response.Content.ReadAsByteArrayAsync();
+                    File.WriteAllBytes(encryptedFilePath, fileBytes); // Sử dụng phương thức đồng bộ
+                }
+
+                // Decrypt the audio file
+                string decryptedFilePath = Path.GetTempFileName();
+                MD5Helper.DecryptWavFile(encryptedFilePath, decryptedFilePath);
+
+                // Play the decrypted audio file
+                PlayAudioFromFile(decryptedFilePath);
+
+                // Clean up temporary files
+                File.Delete(encryptedFilePath);
+                File.Delete(decryptedFilePath);
+            }
+            catch (HttpRequestException httpEx)
+            {
+                string errorMessage = $"Error playing audio: An exception occurred during an HttpClient request. Message: {httpEx.Message}";
+                MessageBox.Show(errorMessage);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error playing audio: " + ex.Message);
+            }
+        }
+        private void PlayAudioFromFile(string filePath)
+        {
+            try
+            {
+                if (outputDevice != null)
+                {
+                    outputDevice.Stop();
+                    outputDevice.Dispose();
+                    outputDevice = null;
+                }
+
+                if (mediaReader != null)
+                {
+                    mediaReader.Dispose();
+                    mediaReader = null;
+                }
+
+                mediaReader = new MediaFoundationReader(filePath);
+                outputDevice = new WaveOutEvent();
+                outputDevice.Init(mediaReader);
+                outputDevice.Play();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error playing audio: " + ex.Message);
+            }
+        }
 
 
-
+        //
 
         private void PictureBoxButton_Click(object sender, EventArgs e)
         {
@@ -138,7 +205,7 @@ namespace MusicApp.Forms
                 // Lấy AudioLink từ CustomPanel và phát âm thanh
                 string audioLink = parentPanel.AudioLink;
                 string audioUrl = ConvertGsToHttps(audioLink);
-                PlayAudioFromUrl(audioUrl);
+                PlayEncryptedAudioFromUrl(audioUrl);
             }
         }
 
@@ -176,7 +243,6 @@ namespace MusicApp.Forms
                 return;
             }
         }
-
         private void btnMinsize_Click(object sender, EventArgs e)
         {
             this.WindowState |= FormWindowState.Minimized;
