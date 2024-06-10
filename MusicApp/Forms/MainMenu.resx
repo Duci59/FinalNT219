@@ -5121,7 +5121,7 @@
   <data name="btnMute.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAA5NJREFUaEPtmjuMTVEUhgcxHolXIcwIHZWSjsarRS2CQnTiEUQiFBKvTjedSlAg
+        DQAACw0B7QfALAAAA5NJREFUaEPtmjuMTVEUhgcxHolXIcwIHZWSjsarRS2CQnTiEUQiFBKvTjedSlAg
         QgSRSLwKErQoCKHxSBBBhO1ba//7Xsc9Z8yMc27OwZf8yax/rbPv2nP2ed7b859/jRDCNHQKvUO30Dyl
         mgNNT0F30c/cVLoZ0PAkdNtbz/JVJfWHZieia952DiqrN/Q5Dl30jgtQaX2hx1503rsdBJXXE/obi855
         p79Bm9QPehuDTniXQ0Cb1Qv6skkc9w6HiDb9LZQuQX0Kq4MPGY2OoWGhzQeFsn70Fr1Gq2WXD4OPQgNo
@@ -5142,7 +5142,7 @@
   <data name="btnMute.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAA5NJREFUaEPtmjuMTVEUhgcxHolXIcwIHZWSjsarRS2CQnTiEUQiFBKvTjedSlAg
+        DQAACw0B7QfALAAAA5NJREFUaEPtmjuMTVEUhgcxHolXIcwIHZWSjsarRS2CQnTiEUQiFBKvTjedSlAg
         QgSRSLwKErQoCKHxSBBBhO1ba//7Xsc9Z8yMc27OwZf8yax/rbPv2nP2ed7b859/jRDCNHQKvUO30Dyl
         mgNNT0F30c/cVLoZ0PAkdNtbz/JVJfWHZieia952DiqrN/Q5Dl30jgtQaX2hx1503rsdBJXXE/obi855
         p79Bm9QPehuDTniXQ0Cb1Qv6skkc9w6HiDb9LZQuQX0Kq4MPGY2OoWGhzQeFsn70Fr1Gq2WXD4OPQgNo
@@ -5286,7 +5286,7 @@
   <data name="btnPauseMusic.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAABU1JREFUaEPtmstvVUUcx2t8R+P7tdSlkaiJGxfYe4sW6xM0OTMXqHGDjw3SoFvA
+        DQAACw0B7QfALAAABU1JREFUaEPtmstvVUUcx2t8R+P7tdSlkaiJGxfYe4sW6xM0OTMXqHGDjw3SoFvA
         NboiIfFvcKmppNbec4rSFNoqJsaChZXowqg7UQKmfr8z33Nvaeeee6a9t1caPsmkl+/8Zub3m9eZM4e+
         a2xUtk4l91RSs72amY8qqR2tZPZ0NTV/4vdFJv5G3jzzaFOt222bv955t4r3lkr65i1w7A04+SWC+Lea
         2cWYhGAvo9xYJU2Gh74YulnVrh9PTyW3olffRwC/LnHqn2pq6whsP0emP7OPssefmn37Rib+puZHzR5A
@@ -5315,7 +5315,7 @@
   <data name="btnPauseMusic.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAABU1JREFUaEPtmstvVUUcx2t8R+P7tdSlkaiJGxfYe4sW6xM0OTMXqHGDjw3SoFvA
+        DQAACw0B7QfALAAABU1JREFUaEPtmstvVUUcx2t8R+P7tdSlkaiJGxfYe4sW6xM0OTMXqHGDjw3SoFvA
         NboiIfFvcKmppNbec4rSFNoqJsaChZXowqg7UQKmfr8z33Nvaeeee6a9t1caPsmkl+/8Zub3m9eZM4e+
         a2xUtk4l91RSs72amY8qqR2tZPZ0NTV/4vdFJv5G3jzzaFOt222bv955t4r3lkr65i1w7A04+SWC+Lea
         2cWYhGAvo9xYJU2Gh74YulnVrh9PTyW3olffRwC/LnHqn2pq6whsP0emP7OPssefmn37Rib+puZHzR5A
@@ -8980,5 +8980,8 @@
   </metadata>
   <metadata name="bunifuColorTransition1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>538, 17</value>
+  </metadata>
+  <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>748, 17</value>
   </metadata>
 </root>

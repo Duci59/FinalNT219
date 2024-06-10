@@ -38,7 +38,7 @@ namespace MusicApp.Forms
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void btnMaxsize_Click(object sender, EventArgs e)
