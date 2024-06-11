@@ -244,7 +244,7 @@ namespace MusicApp.Forms
 
         private async void DownloadButton_Click(object sender, EventArgs e)
         {
-            if (Usertype == "premium" || Usertype == "counterpart")
+            if (Usertype.GiaiMa() == "premium")
             {
                 try
                 {
@@ -300,7 +300,7 @@ namespace MusicApp.Forms
             }
             else
             {
-                MessageBox.Show("Chỉ đối tác hoặc tài khoản premium mới có thể down nhạc");
+                MessageBox.Show("Chỉ tài khoản premium mới có thể tải nhạc");
             }
         }
 
@@ -492,7 +492,7 @@ namespace MusicApp.Forms
 
         private void btnUploadFiles_Click(object sender, EventArgs e)
         {
-            if (Usertype == "counterpart")
+            if (Usertype.GiaiMa() == "counterpart")
             {
                 Forms.AddSong form = new Forms.AddSong(Username);
                 form.ShowDialog();

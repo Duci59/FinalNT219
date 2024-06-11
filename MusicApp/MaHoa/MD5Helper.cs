@@ -1,13 +1,8 @@
-﻿using Google.Cloud.Storage.V1;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using System;
-using System.Buffers.Text;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace MusicApp.MaHoa
 {
@@ -33,44 +28,69 @@ namespace MusicApp.MaHoa
 
         static byte[] bMaHoa(byte[] duLieuCanMaHoa)
         {
-            using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
+            using (Aes aesAlg = Aes.Create())
             {
-                using (TripleDESCryptoServiceProvider des = new TripleDESCryptoServiceProvider())
+                aesAlg.Key = GenerateKeyFromPassword(matkhau);
+                aesAlg.IV = GenerateIVFromPassword(matkhau);
+                aesAlg.Mode = CipherMode.CBC;
+                aesAlg.Padding = PaddingMode.PKCS7;
+
+                using (ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV))
                 {
-                    des.Key = md5.ComputeHash(Encoding.UTF8.GetBytes(matkhau));
-                    des.Mode = CipherMode.ECB;
-                    des.Padding = PaddingMode.PKCS7;
-                    using (ICryptoTransform tran = des.CreateEncryptor())
-                    {
-                        byte[] output = tran.TransformFinalBlock(duLieuCanMaHoa, 0, duLieuCanMaHoa.Length);
-                        return output;
-                    }
+                    return Transform(duLieuCanMaHoa, encryptor);
                 }
             }
         }
 
         static byte[] bGiaiMa(byte[] duLieuCanGiaiMa)
         {
-            using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
+            using (Aes aesAlg = Aes.Create())
             {
-                using (TripleDESCryptoServiceProvider des = new TripleDESCryptoServiceProvider())
+                aesAlg.Key = GenerateKeyFromPassword(matkhau);
+                aesAlg.IV = GenerateIVFromPassword(matkhau);
+                aesAlg.Mode = CipherMode.CBC;
+                aesAlg.Padding = PaddingMode.PKCS7;
+
+                using (ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV))
                 {
-                    des.Key = md5.ComputeHash(Encoding.UTF8.GetBytes(matkhau));
-                    des.Mode = CipherMode.ECB;
-                    des.Padding = PaddingMode.PKCS7;
-                    using (ICryptoTransform tran = des.CreateDecryptor())
+                    try
                     {
-                        try
-                        {
-                            byte[] output = tran.TransformFinalBlock(duLieuCanGiaiMa, 0, duLieuCanGiaiMa.Length);
-                            return output;
-                        }
-                        catch
-                        {
-                            return Encoding.UTF8.GetBytes("[Key bị thay đổi]-Để xem lại cần set về key cũ");
-                        }
+                        return Transform(duLieuCanGiaiMa, decryptor);
+                    }
+                    catch
+                    {
+                        return Encoding.UTF8.GetBytes("[Key bị thay đổi]-Để xem lại cần set về key cũ");
                     }
                 }
+            }
+        }
+        static byte[] Transform(byte[] data, ICryptoTransform transform)
+        {
+            using (MemoryStream memoryStream = new MemoryStream())
+            {
+                using (CryptoStream cryptoStream = new CryptoStream(memoryStream, transform, CryptoStreamMode.Write))
+                {
+                    cryptoStream.Write(data, 0, data.Length);
+                    cryptoStream.FlushFinalBlock();
+                    return memoryStream.ToArray();
+                }
+            }
+        }
+        static byte[] GenerateKeyFromPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                return sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+            }
+        }
+        static byte[] GenerateIVFromPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] hash = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                byte[] iv = new byte[16];
+                Array.Copy(hash, iv, iv.Length);
+                return iv;
             }
         }
         // ma hoa ne nhe m 
@@ -176,15 +196,15 @@ namespace MusicApp.MaHoa
 
         public static string MaHoaMotChieu(this string duLieuCanMaHoa)
         {
-            using (MD5 md5 = MD5.Create())
+            using (SHA256 sha256 = SHA256.Create())
             {
                 byte[] inputBytes = Encoding.UTF8.GetBytes(duLieuCanMaHoa);
-                byte[] hash = md5.ComputeHash(inputBytes);
+                byte[] hash = sha256.ComputeHash(inputBytes);
 
                 StringBuilder sb = new StringBuilder();
                 for (int i = 0; i < hash.Length; i++)
                 {
-                    sb.Append(hash[i].ToString("X2")); // Chuyển byte thành chuỗi hex
+                    sb.Append(hash[i].ToString("X2"));
                 }
 
                 return sb.ToString();

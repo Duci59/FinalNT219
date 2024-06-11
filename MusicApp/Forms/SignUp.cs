@@ -123,7 +123,7 @@ namespace MusicApp.Forms
                     displayName = tbTHT.Text.MaHoa(),
                     password = tbMK.Text.MaHoaMotChieu(),
                     email = tbDK.Text.MaHoa(),
-                    userType = "casual"
+                    userType = "casual".MaHoa()
                 };
 
                 SetResponse response = await client.SetAsync("Users/" + tbTDN.Text.MaHoa(), data);
