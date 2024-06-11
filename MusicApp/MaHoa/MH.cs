@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MusicApp.MaHoa
 {
-    static class MD5Helper
+    static class MH
     {
         static string matkhau = "1h87h8712j";
         static byte[] encryptionKey;

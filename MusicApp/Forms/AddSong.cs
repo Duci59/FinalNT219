@@ -84,7 +84,7 @@ namespace MusicApp.Forms
                     Img = output
                 };
 
-                MD5Helper.EncryptWavFile(tbURLAudio.Text, tbURLAudio.Text);
+                MaHoa.MH.EncryptWavFile(tbURLAudio.Text, tbURLAudio.Text);
 
                 //MessageBox.Show(Properties.Resources.filesrac.ToString());
                 using (FileStream audioFileStream = File.OpenRead(tbURLAudio.Text))

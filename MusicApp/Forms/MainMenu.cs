@@ -105,7 +105,7 @@ namespace MusicApp.Forms
                 File.WriteAllBytes(tempEncryptedFile, audioData);
 
                 // Giải mã file đã tải xuống
-                MD5Helper.DecryptWavFile(tempEncryptedFile, tempDecryptedFile);
+                MaHoa.MH.DecryptWavFile(tempEncryptedFile, tempDecryptedFile);
 
                 // Chuyển đổi WAV sang MP3
                 using (var reader = new AudioFileReader(tempDecryptedFile))
@@ -145,7 +145,7 @@ namespace MusicApp.Forms
 
                 // Decrypt the audio file
                 string decryptedFilePath = Path.GetTempFileName();
-                MD5Helper.DecryptWavFile(encryptedFilePath, decryptedFilePath);
+                MaHoa.MH.DecryptWavFile(encryptedFilePath, decryptedFilePath);
 
                 // Play the decrypted audio file
                 PlayAudioFromFile(decryptedFilePath);
@@ -278,7 +278,7 @@ namespace MusicApp.Forms
                                     string decryptedFilePath = saveFileDialog.FileName;
 
                                     // Decrypt the downloaded file
-                                    MD5Helper.DecryptWavFile(encryptedFilePath, decryptedFilePath);
+                                    MaHoa.MH.DecryptWavFile(encryptedFilePath, decryptedFilePath);
 
                                     // Clean up the temporary encrypted file
                                     File.Delete(encryptedFilePath);
