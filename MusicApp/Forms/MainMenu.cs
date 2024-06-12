@@ -20,6 +20,7 @@ namespace MusicApp.Forms
     public partial class MainMenu : Form
     {
         string Username, Usertype;
+        private Timer playbackTimer;
         private readonly Service _firebaseService;
         private readonly StorageClient _storageClient;
         private readonly IFirebaseClient client;
@@ -37,6 +38,11 @@ namespace MusicApp.Forms
             client = _firebaseService.GetFirebaseClient();
             Username = username;
             Usertype = usertype;
+
+            // Initialize and configure playback timer
+            playbackTimer = new Timer();
+            playbackTimer.Interval = 1000; // Update every second
+            playbackTimer.Tick += PlaybackTimer_Tick;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -185,6 +191,10 @@ namespace MusicApp.Forms
                 outputDevice = new WaveOutEvent();
                 outputDevice.Init(mediaReader);
                 outputDevice.Play();
+
+                // Start the playback timer
+                playbackTimer.Start();
+
                 btnPauseMusic.Visible = true;
                 btnPlayMusic.Visible = false;
                 //MessageBox.Show("OK");
@@ -373,6 +383,7 @@ namespace MusicApp.Forms
                     newPosition = mediaReader.TotalTime;
                 }
                 mediaReader.CurrentTime = newPosition;
+                bunifuHSlider1.Value = (int)(mediaReader.CurrentTime.TotalSeconds / mediaReader.TotalTime.TotalSeconds * 100);
             }
         }
 
@@ -386,6 +397,7 @@ namespace MusicApp.Forms
                     newPosition = TimeSpan.Zero;
                 }
                 mediaReader.CurrentTime = newPosition;
+                bunifuHSlider1.Value = (int)(mediaReader.CurrentTime.TotalSeconds / mediaReader.TotalTime.TotalSeconds * 100);
             }
         }
 
@@ -414,6 +426,9 @@ namespace MusicApp.Forms
                     outputDevice.Play();
                     btnPauseMusic.Visible = true;
                     btnPlayMusic.Visible = false;
+
+                    // Start the playback timer
+                    playbackTimer.Start();
                 }
             }
             else
@@ -431,6 +446,9 @@ namespace MusicApp.Forms
                     outputDevice.Pause();
                     btnPauseMusic.Visible = false;
                     btnPlayMusic.Visible = true ;
+
+                    // Stop the playback timer
+                    playbackTimer.Stop();
                 }
                 else if (outputDevice.PlaybackState == PlaybackState.Paused)
                 {
@@ -476,6 +494,30 @@ namespace MusicApp.Forms
                 outputDevice.Volume = (float)bunifuHSlider2.Value / 100.0f;
             }
         }
+
+        private void PlaybackTimer_Tick(object sender, EventArgs e)
+        {
+            if (mediaReader != null && outputDevice != null && outputDevice.PlaybackState == PlaybackState.Playing)
+            {
+                // Update the slider and labels with the current playback position and total duration
+                TimeSpan currentTime = mediaReader.CurrentTime;
+                TimeSpan totalTime = mediaReader.TotalTime;
+
+                lbTimeStart.Text = currentTime.ToString(@"mm\:ss");
+                lbTimeEnd.Text = totalTime.ToString(@"mm\:ss");
+
+                // Calculate the slider value (0 to 100)
+                bunifuHSlider1.Value = (int)(currentTime.TotalSeconds / totalTime.TotalSeconds * 100);
+
+                // If the current time equals the total time, set the slider value to 100
+                if (currentTime >= totalTime)
+                {
+                    bunifuHSlider1.Value = 100;
+                    playbackTimer.Stop(); // Stop the timer if the playback is finished
+                }
+            }
+        }
+
 
         private void bunifuHSlider1_ValueChanged(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs e)
         {

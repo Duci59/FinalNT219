@@ -946,7 +946,7 @@
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel5.Location = new System.Drawing.Point(12, 55);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(86, 82);
+            this.panel5.Size = new System.Drawing.Size(107, 102);
             this.panel5.TabIndex = 0;
             // 
             // panel3
@@ -1426,7 +1426,7 @@
             this.bunifuHSlider1.ScrollBarBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
             this.bunifuHSlider1.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
             this.bunifuHSlider1.ShrinkSizeLimit = 3;
-            this.bunifuHSlider1.Size = new System.Drawing.Size(812, 31);
+            this.bunifuHSlider1.Size = new System.Drawing.Size(798, 31);
             this.bunifuHSlider1.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
             this.bunifuHSlider1.SliderStyle = Bunifu.UI.WinForms.BunifuHSlider.SliderStyles.Thin;
             this.bunifuHSlider1.SliderThumbStyle = Utilities.BunifuSlider.BunifuHScrollBar.SliderThumbStyles.Circular;
@@ -1434,12 +1434,11 @@
             this.bunifuHSlider1.TabIndex = 0;
             this.bunifuHSlider1.ThumbColor = System.Drawing.Color.DodgerBlue;
             this.bunifuHSlider1.ThumbFillColor = System.Drawing.SystemColors.Control;
-            this.bunifuHSlider1.ThumbLength = 80;
+            this.bunifuHSlider1.ThumbLength = 79;
             this.bunifuHSlider1.ThumbMargin = 1;
             this.bunifuHSlider1.ThumbSize = Bunifu.UI.WinForms.BunifuHSlider.ThumbSizes.Medium;
             this.bunifuHSlider1.ThumbStyle = Bunifu.UI.WinForms.BunifuHSlider.ThumbStyles.Outline;
             this.bunifuHSlider1.Value = 0;
-            this.bunifuHSlider1.ValueChanged += new System.EventHandler<Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs>(this.bunifuHSlider1_ValueChanged);
             // 
             // bunifuDragControl1
             // 

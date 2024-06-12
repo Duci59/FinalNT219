@@ -8,7 +8,6 @@ namespace MusicApp.MaHoa
 {
     static class MH
     {
-        static string matkhau = "1h87h8712j";
         static byte[] encryptionKey;
         static byte[] encryptionIV;
 
@@ -28,6 +27,15 @@ namespace MusicApp.MaHoa
 
         static byte[] bMaHoa(byte[] duLieuCanMaHoa)
         {
+            string projectDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent?.Parent?.FullName;
+
+            var builder = new ConfigurationBuilder()
+                .AddJsonFile(Path.Combine(projectDirectory, "appsettings.json"), optional: false, reloadOnChange: true);
+
+            // Tạo IConfiguration từ ConfigurationBuilder
+            IConfiguration config = builder.Build();
+            // Đọc các cấu hình từ "Firebase" section
+            string matkhau = config["Firebase:matkhau"];
             using (Aes aesAlg = Aes.Create())
             {
                 aesAlg.Key = GenerateKeyFromPassword(matkhau);
@@ -44,6 +52,15 @@ namespace MusicApp.MaHoa
 
         static byte[] bGiaiMa(byte[] duLieuCanGiaiMa)
         {
+            string projectDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent?.Parent?.FullName;
+
+            var builder = new ConfigurationBuilder()
+                .AddJsonFile(Path.Combine(projectDirectory, "appsettings.json"), optional: false, reloadOnChange: true);
+
+            // Tạo IConfiguration từ ConfigurationBuilder
+            IConfiguration config = builder.Build();
+            // Đọc các cấu hình từ "Firebase" section
+            string matkhau = config["Firebase:matkhau"];
             using (Aes aesAlg = Aes.Create())
             {
                 aesAlg.Key = GenerateKeyFromPassword(matkhau);
