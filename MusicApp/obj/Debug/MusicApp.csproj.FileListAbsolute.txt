@@ -449,3 +449,4 @@ D:\NT219_Final\FinalNT219\MusicApp\bin\Debug\NAudio.WinForms.xml
 D:\NT219_Final\FinalNT219\MusicApp\bin\Debug\NAudio.WinMM.xml
 D:\NT219_Final\FinalNT219\MusicApp\bin\Debug\System.Security.AccessControl.xml
 D:\NT219_Final\FinalNT219\MusicApp\bin\Debug\System.Security.Principal.Windows.xml
+D:\FinalNT219\FinalNT219\MusicApp\bin\Debug\BouncyCastle.Crypto.dll

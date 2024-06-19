@@ -3,6 +3,10 @@ using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
+using Org.BouncyCastle.Crypto;
+using Org.BouncyCastle.Crypto.Engines;
+using Org.BouncyCastle.Crypto.Modes;
+using Org.BouncyCastle.Crypto.Parameters;
 
 namespace MusicApp.MaHoa
 {
@@ -113,7 +117,6 @@ namespace MusicApp.MaHoa
         // ma hoa ne nhe m 
         public static void EncryptWavFile(string inputFile, string outputFile)
         {
-
             string projectDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent?.Parent?.FullName;
 
             var builder = new ConfigurationBuilder()
@@ -122,40 +125,39 @@ namespace MusicApp.MaHoa
             // Tạo IConfiguration từ ConfigurationBuilder
             IConfiguration config = builder.Build();
             // Đọc các cấu hình từ "Firebase" section
-            string key = config["Firebase:encryptionKey"];
-            string IV = config["Firebase:encryptionIV"];
-            encryptionKey = Convert.FromBase64String(key);
-            encryptionIV = Convert.FromBase64String(IV);
+            string matkhau = config["Firebase:matkhau"];
+
+            // Generate key and IV from password
+            byte[] key = GenerateKeyFromPassword(matkhau);
+            byte[] iv = GenerateIVFromPassword(matkhau);
+
             // Đọc dữ liệu từ file âm thanh đầu vào
             byte[] inputBytes = File.ReadAllBytes(inputFile);
 
-            // Mã hóa dữ liệu âm thanh
-            byte[] encryptedBytes = EncryptBytes(inputBytes, encryptionKey, encryptionIV);
+            // Mã hóa dữ liệu âm thanh sử dụng AES-GCM
+            byte[] encryptedBytes = EncryptBytes(inputBytes, key, iv);
 
             // Ghi dữ liệu đã mã hóa vào file đầu ra
             File.WriteAllBytes(outputFile, encryptedBytes);
         }
+
         private static byte[] EncryptBytes(byte[] inputBytes, byte[] key, byte[] iv)
         {
-            using (Aes aesAlg = Aes.Create())
-            {
-                aesAlg.Key = key;
-                aesAlg.IV = iv;
+            // Sử dụng AES-GCM với BouncyCastle
+            GcmBlockCipher cipher = new GcmBlockCipher(new AesEngine());
+            AeadParameters parameters = new AeadParameters(new KeyParameter(key), 128, iv);
 
-                ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
+            cipher.Init(true, parameters);
 
-                using (MemoryStream memoryStream = new MemoryStream())
-                {
-                    using (CryptoStream cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
-                    {
-                        cryptoStream.Write(inputBytes, 0, inputBytes.Length);
-                        cryptoStream.FlushFinalBlock();
+            byte[] output = new byte[cipher.GetOutputSize(inputBytes.Length)];
+            int outputLength = cipher.ProcessBytes(inputBytes, 0, inputBytes.Length, output, 0);
+            cipher.DoFinal(output, outputLength);
 
-                        return memoryStream.ToArray();
-                    }
-                }
-            }
-        } 
+            // Return encrypted data
+            return output;
+        }
+
+
         // con cai nay la giai ma 
         public static void DecryptWavFile(string inputFile, string outputFile)
         {
@@ -167,15 +169,17 @@ namespace MusicApp.MaHoa
             // Tạo IConfiguration từ ConfigurationBuilder
             IConfiguration config = builder.Build();
             // Đọc các cấu hình từ "Firebase" section
-            string key = config["Firebase:encryptionKey"];
-            string IV = config["Firebase:encryptionIV"];
-            encryptionKey = Convert.FromBase64String(key);
-            encryptionIV = Convert.FromBase64String(IV);
+            string matkhau = config["Firebase:matkhau"];
+
+            // Generate key and IV from password
+            byte[] key = GenerateKeyFromPassword(matkhau);
+            byte[] iv = GenerateIVFromPassword(matkhau);
+
             // Đọc dữ liệu từ file âm thanh đầu vào
             byte[] inputBytes = File.ReadAllBytes(inputFile);
 
-            // Giải mã dữ liệu âm thanh
-            byte[] decryptedBytes = DecryptBytes(inputBytes, encryptionKey, encryptionIV);
+            // Giải mã dữ liệu âm thanh sử dụng AES-GCM
+            byte[] decryptedBytes = DecryptBytes(inputBytes, key, iv);
 
             // Ghi dữ liệu đã giải mã vào file đầu ra
             File.WriteAllBytes(outputFile, decryptedBytes);
@@ -183,33 +187,21 @@ namespace MusicApp.MaHoa
 
         private static byte[] DecryptBytes(byte[] inputBytes, byte[] key, byte[] iv)
         {
-            using (Aes aesAlg = Aes.Create())
-            {
-                aesAlg.Key = key;
-                aesAlg.IV = iv;
+            // Sử dụng AES-GCM với BouncyCastle
+            GcmBlockCipher cipher = new GcmBlockCipher(new AesEngine());
+            AeadParameters parameters = new AeadParameters(new KeyParameter(key), 128, iv);
 
-                ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
+            cipher.Init(false, parameters);
 
-                using (MemoryStream memoryStream = new MemoryStream(inputBytes))
-                {
-                    using (CryptoStream cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read))
-                    {
-                        using (MemoryStream decryptedStream = new MemoryStream())
-                        {
-                            byte[] buffer = new byte[1024];
-                            int bytesRead;
+            byte[] output = new byte[cipher.GetOutputSize(inputBytes.Length)];
+            int outputLength = cipher.ProcessBytes(inputBytes, 0, inputBytes.Length, output, 0);
+            cipher.DoFinal(output, outputLength);
 
-                            while ((bytesRead = cryptoStream.Read(buffer, 0, buffer.Length)) > 0)
-                            {
-                                decryptedStream.Write(buffer, 0, bytesRead);
-                            }
-
-                            return decryptedStream.ToArray();
-                        }
-                    }
-                }
-            }
+            // Return decrypted data
+            return output;
         }
+
+
 
         public static string MaHoaMotChieu(this string duLieuCanMaHoa)
         {
